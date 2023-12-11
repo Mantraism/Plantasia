@@ -7,6 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.navigation.Navigation
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.plantasiakuadrat.databinding.FragmentProfileBinding
 import com.example.plantasiakuadrat.databinding.FragmentSettingBinding
 
@@ -15,7 +18,8 @@ class SettingFragment : Fragment() {
     private lateinit var binding: FragmentSettingBinding
     private lateinit var mp: MediaPlayer
 
-    override fun onCreateView(
+
+override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
@@ -31,7 +35,14 @@ class SettingFragment : Fragment() {
         binding.plantMusic.setOnClickListener {
             mp.start()
         }
+//        binding.plantList.setOnClickListener {
+//            Navigation.findNavController(it).navigate(R.id.action_settingFragment_to_homeFragment)
+//        }
+//        binding.plantProfile.setOnClickListener {
+//            Navigation.findNavController(it).navigate(R.id.action_settingFragment_to_profileFragment)
+//        }
     }
+
 }
 
 

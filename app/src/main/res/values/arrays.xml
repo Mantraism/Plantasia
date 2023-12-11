@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="country_image_list">
+        <item>@drawable/bibit_tanaman</item>
+        <item>@drawable/bibit_tanaman</item>
+        <item>@drawable/bibit_tanaman</item>
+        <!-- Add more items as needed -->
+    </array>
+</resources>
