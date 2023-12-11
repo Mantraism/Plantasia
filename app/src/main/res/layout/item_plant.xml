@@ -9,24 +9,50 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="113dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
+
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/image_rv"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@mipmap/ic_launcher" />
-
-        <TextView
-            android:id="@+id/title_rv"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Hallo"
-            android:textColor="#409AFF"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Hallo"
+                android:textColor="#409AFF"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/latinname_rv"
+                android:layout_width="290dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Hallo"
+                android:textColor="#409AFF"
+                android:textSize="24sp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/bibliography"
+                android:layout_width="288dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Hallo"
+                android:textColor="#409AFF"
+                android:textSize="24sp" />
+        </LinearLayout>
+
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

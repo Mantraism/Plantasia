@@ -16,6 +16,8 @@ class HomeAdapter(private val list : List<Data>):RecyclerView.Adapter<HomeAdapte
     inner class MyViewHolder(view : View):RecyclerView.ViewHolder(view){
         val title: TextView = view.findViewById(R.id.title_rv)
         val image: ImageView = view.findViewById(R.id.image_rv)
+        val latinname : TextView = view.findViewById(R.id.latinname_rv)
+        val bibliography : TextView = view.findViewById(R.id.bibliography)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -30,6 +32,8 @@ class HomeAdapter(private val list : List<Data>):RecyclerView.Adapter<HomeAdapte
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.title.text = list[position].common_name
+        holder.latinname.text = list[position].scientific_name
+        holder.bibliography.text = list[position].bibliography
         Log.d("title","Response : $holder")
         // Assuming defaultImage is a property of your data class that holds image information
         val imageUrl = list[position].image_url
