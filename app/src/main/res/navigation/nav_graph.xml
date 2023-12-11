@@ -76,7 +76,11 @@
         android:id="@+id/profileFragment"
         android:name="com.example.plantasiakuadrat.ProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_RegisterFragment"
+            app:destination="@id/RegisterFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigationParentFragment"
         android:name="com.example.plantasiakuadrat.ui.NavigationParentFragment"

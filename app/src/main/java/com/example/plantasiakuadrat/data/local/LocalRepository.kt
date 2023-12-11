@@ -9,4 +9,7 @@ class LocalRepository(private val appDatabase: AppDatabase) {
     suspend fun getUser(email : String, password : String): UserEntity? {
        return appDatabase.userDao().getUserByEmailAndPassword(email,password)
     }
+    suspend fun getProfile(email: String): UserEntity {
+        return appDatabase.userDao().getProfile(email)
+    }
 }

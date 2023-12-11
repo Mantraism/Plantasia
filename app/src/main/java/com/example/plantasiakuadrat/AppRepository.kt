@@ -12,5 +12,8 @@ class AppRepository(private val localRepository: LocalRepository, private val re
     suspend fun getUser(email : String, password : String): UserEntity? {
         return localRepository.getUser(email,password)
     }
+    suspend fun getProfile(email: String): UserEntity {
+        return localRepository.getProfile(email)
+    }
     suspend fun getPlants() = remoteRepository.getPlants()
 }

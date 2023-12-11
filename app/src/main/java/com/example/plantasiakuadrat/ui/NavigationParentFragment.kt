@@ -1,5 +1,7 @@
     package com.example.plantasiakuadrat.ui
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +12,7 @@ import com.example.plantasiakuadrat.R
 import com.example.plantasiakuadrat.SettingFragment
 import com.example.plantasiakuadrat.databinding.FragmentNavigationParentBinding
 import com.example.plantasiakuadrat.ui.home.HomeFragment
+import com.example.plantasiakuadrat.ui.register.RegisterFragment
 
 
     class NavigationParentFragment : Fragment() {
@@ -23,10 +26,27 @@ import com.example.plantasiakuadrat.ui.home.HomeFragment
         _binding = FragmentNavigationParentBinding.inflate(inflater, container, false)
 
         val homeFragment = HomeFragment()
-        val profileFragment = ProfileFragment()
         val settingFragment = SettingFragment()
-
-        setCurrentFragment(homeFragment)
+        val registerFragment = RegisterFragment()
+        val email = arguments?.getString("email") ?: ""
+        val profileFragment = ProfileFragment().apply{
+            arguments = Bundle().apply {
+                putString("email", email)
+            }
+        }
+        val iconColorStates = ColorStateList(
+            arrayOf(
+                intArrayOf(-android.R.attr.state_checked),
+                intArrayOf(android.R.attr.state_checked)
+            ),
+            intArrayOf(
+                Color.parseColor("#787878"),
+                Color.parseColor("#7BFC4E")
+            )
+        )
+        binding.bottomNavigationView.itemIconTintList = iconColorStates
+        binding.bottomNavigationView.itemTextColor = iconColorStates
+        setCurrentFragment(settingFragment)
 
         binding.bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId) {

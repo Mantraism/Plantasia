@@ -45,8 +45,11 @@ class LoginFragment : Fragment() {
             observeIsLogin().observe(requireActivity()){
                 it.let { data ->
                     if (data != null){
+                        val bundle = Bundle().apply {
+                            putString("email", binding.email1.text.toString())
+                        }
                         Log.d("Test", "Error")
-                        findNavController().navigate(R.id.action_LoginFragment_to_navigationParentFragment)
+                        findNavController().navigate(R.id.action_LoginFragment_to_navigationParentFragment,bundle)
                     }
                 }
             }
