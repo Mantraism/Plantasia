@@ -10,7 +10,7 @@ import retrofit2.http.Query
 import java.nio.channels.spi.AbstractSelectionKey
 
 interface ApiService {
-    @GET("/products")
+    @GET("api/v1/plants?token=HWzjBiQZEHIdTQds1oWAkMSJbYMOWvFKiwbM1xsjvZs")
     suspend fun getPlants(
 
     ) : Response<PlantResponse>

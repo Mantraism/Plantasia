@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.plantasiakuadrat.data.remote.response.Data
 import com.example.plantasiakuadrat.data.remote.response.PlantResponse
-import com.example.plantasiakuadrat.data.remote.response.PlantResponseItem
 import com.example.plantasiakuadrat.databinding.FragmentHomeBinding
 import okhttp3.internal.http.hasBody
 import org.koin.android.ext.android.inject
@@ -19,7 +19,7 @@ class   HomeFragment : Fragment() {
     private var _binding : FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private val viewModel:HomeViewModel by inject()
-    private var list: ArrayList<PlantResponseItem> = arrayListOf()
+    private var list: List<Data> =  emptyList()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -52,18 +52,17 @@ class   HomeFragment : Fragment() {
         return binding.root
 
     }
-    private fun observeData(){
-        with(viewModel){
-            Log.d("homeFragment","observeDataViewModel")
-            observePlant.observe(requireActivity()){
-                it.let { data ->
-                    list = data.body()!!
-                    Log.d("home","observeData: $list")
-                    with(binding.rvPlant){
+    private fun observeData() {
+        with(viewModel) {
+            Log.d("HomeFragment", "observeDataViewModel")
+            observePlant.observe(viewLifecycleOwner) { response ->
+                response.body()?.let { plantResponse ->
+                    list = plantResponse.data
+                    Log.d("HomeFragment", "observeData: $list")
+                    with(binding.rvPlant) {
                         adapter = HomeAdapter(list)
                         layoutManager = LinearLayoutManager(requireContext())
                     }
-
                 }
             }
         }

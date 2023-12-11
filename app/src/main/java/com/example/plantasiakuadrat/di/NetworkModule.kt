@@ -19,7 +19,7 @@ val networkModule = module {
     }
     single {
         Retrofit.Builder()
-            .baseUrl("https://fakestoreapi.com/")
+            .baseUrl("https://trefle.io/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(get())
             .build()
